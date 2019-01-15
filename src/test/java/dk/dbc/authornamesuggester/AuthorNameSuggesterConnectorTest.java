@@ -69,7 +69,6 @@ public class AuthorNameSuggesterConnectorTest {
 
         Suggestions suggestions = connector.getSuggestions(authorList);
 
-        System.out.println(suggestions);
         assertThat(suggestions.getAuthorityIds().size(), is(2));
         assertThat(suggestions.getAuthorityIds().get(0), is("19212041"));
         assertThat(suggestions.getAuthorityIds().get(1), is("19172422"));
