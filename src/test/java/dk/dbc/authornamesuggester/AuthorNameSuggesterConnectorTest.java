@@ -14,6 +14,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.client.Client;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
@@ -48,10 +50,29 @@ public class AuthorNameSuggesterConnectorTest {
         wireMockServer.stop();
     }
 
-    // Temporary dummy test
     @Test
-    void params() {
-        assertThat(true, is(true));
+    void getSuggestionsForSingleAuthorTest() throws AuthorNameSuggesterConnectorException {
+        List<String> authorList = new ArrayList<>();
+        authorList.add("Sophie Engberg Sonne");
+
+        Suggestions suggestions = connector.getSuggestions(authorList);
+        assertThat(suggestions.getAuthorityIds().size(), is(1));
+        assertThat(suggestions.getAuthorityIds().get(0), is("19212041"));
+    }
+
+    // Disabled for now as wire mock returns the wrong result
+    //@Test
+    void getSuggestionsForTwoAuthorsTest() throws AuthorNameSuggesterConnectorException {
+        List<String> authorList = new ArrayList<>();
+        authorList.add("Sophie Engberg Sonne");
+        authorList.add("Simon Roliggaard");
+
+        Suggestions suggestions = connector.getSuggestions(authorList);
+
+        System.out.println(suggestions);
+        assertThat(suggestions.getAuthorityIds().size(), is(2));
+        assertThat(suggestions.getAuthorityIds().get(0), is("19212041"));
+        assertThat(suggestions.getAuthorityIds().get(1), is("19172422"));
     }
 
 }

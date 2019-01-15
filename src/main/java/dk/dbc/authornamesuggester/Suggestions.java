@@ -12,17 +12,17 @@ import java.util.List;
 public class Suggestions {
 
     @JsonProperty("aut-names")
-    private List<String> authorNames;
+    private List<String> authorityIds;
 
     @JsonProperty("ner-names")
     private List<String> nerNames;
 
-    public List<String> getAuthorNames() {
-        return authorNames;
+    public List<String> getAuthorityIds() {
+        return authorityIds;
     }
 
-    public void setAuthorNames(List<String> authorNames) {
-        this.authorNames = authorNames;
+    public void setAuthorityIds(List<String> authorityIds) {
+        this.authorityIds = authorityIds;
     }
 
     public List<String> getNerNames() {
@@ -36,7 +36,7 @@ public class Suggestions {
     @Override
     public String toString() {
         return "Suggestions{" +
-                "authorNames=" + authorNames +
+                "authorityIds=" + authorityIds +
                 ", nerNames=" + nerNames +
                 '}';
     }
