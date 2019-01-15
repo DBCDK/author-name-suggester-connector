@@ -1,0 +1,24 @@
+{
+  "id" : "74e973e2-3c94-3ef0-89fa-8bd05ceab476",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[\"Sophie Engberg Sonne\",\"Simon Roliggaard\"]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-names-suggest-4P9mc.json",
+    "headers" : {
+      "Server" : "nginx/1.10.3",
+      "Date" : "Tue, 15 Jan 2019 13:11:20 GMT",
+      "Content-Type" : "application/json",
+      "Transfer-Encoding" : "chunked",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "74e973e2-3c94-3ef0-89fa-8bd05ceab476"
+}
