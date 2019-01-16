@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class Suggestions {
+public class AuthorNameSuggestions {
 
     @JsonProperty("aut-names")
     private List<String> authorityIds;
@@ -35,7 +35,7 @@ public class Suggestions {
 
     @Override
     public String toString() {
-        return "Suggestions{" +
+        return "AuthorNameSuggestions{" +
                 "authorityIds=" + authorityIds +
                 ", nerNames=" + nerNames +
                 '}';

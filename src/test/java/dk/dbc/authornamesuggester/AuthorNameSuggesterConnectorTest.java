@@ -55,9 +55,9 @@ public class AuthorNameSuggesterConnectorTest {
         List<String> authorList = new ArrayList<>();
         authorList.add("Sophie Engberg Sonne");
 
-        Suggestions suggestions = connector.getSuggestions(authorList);
-        assertThat(suggestions.getAuthorityIds().size(), is(1));
-        assertThat(suggestions.getAuthorityIds().get(0), is("19212041"));
+        AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
+        assertThat(authorNameSuggestions.getAuthorityIds().size(), is(1));
+        assertThat(authorNameSuggestions.getAuthorityIds().get(0), is("19212041"));
     }
 
     // Disabled for now as wire mock returns the wrong result
@@ -67,11 +67,10 @@ public class AuthorNameSuggesterConnectorTest {
         authorList.add("Sophie Engberg Sonne");
         authorList.add("Simon Roliggaard");
 
-        Suggestions suggestions = connector.getSuggestions(authorList);
-
-        assertThat(suggestions.getAuthorityIds().size(), is(2));
-        assertThat(suggestions.getAuthorityIds().get(0), is("19212041"));
-        assertThat(suggestions.getAuthorityIds().get(1), is("19172422"));
+        AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
+        assertThat(authorNameSuggestions.getAuthorityIds().size(), is(2));
+        assertThat(authorNameSuggestions.getAuthorityIds().get(0), is("19212041"));
+        assertThat(authorNameSuggestions.getAuthorityIds().get(1), is("19172422"));
     }
 
 }

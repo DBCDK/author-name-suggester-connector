@@ -19,10 +19,10 @@ You must have the following environment variables in your deployment:
 
     AUTHOR_NAME_SUGGESTER_URL
 
-To get suggestions for authors in an Infomedia article:
+To get AuthorNameSuggestions for authors in an Infomedia article:
     
     AuthorNameSuggesterConnector suggesterConnector = suggesterConnectorFactory.getInstance();
 
-    Suggestions suggestions = suggesterConnector.getSuggestions(article.getAuthors());
+    AuthorNameSuggestions authorNameSuggestions = suggesterConnector.getSuggestions(article.getAuthors());
 
 
