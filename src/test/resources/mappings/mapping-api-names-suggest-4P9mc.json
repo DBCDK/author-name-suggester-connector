@@ -4,7 +4,7 @@
     "url" : "/api/names/suggest",
     "method" : "POST",
     "bodyPatterns" : [ {
-      "equalToJson" : "[\"Sophie Engberg Sonne\",\"Simon Roliggaard\"]",
+      "equalToJson" : "[\"Maria Engberg Sonne\",\"Simon Roliggaard\"]",
       "ignoreArrayOrder" : true,
       "ignoreExtraElements" : true
     } ]
