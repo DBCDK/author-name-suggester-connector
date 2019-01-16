@@ -60,11 +60,10 @@ public class AuthorNameSuggesterConnectorTest {
         assertThat(authorNameSuggestions.getAuthorityIds().get(0), is("19212041"));
     }
 
-    // Disabled for now as wire mock returns the wrong result
-    //@Test
+    @Test
     void getSuggestionsForTwoAuthorsTest() throws AuthorNameSuggesterConnectorException {
         List<String> authorList = new ArrayList<>();
-        authorList.add("Sophie Engberg Sonne");
+        authorList.add("Maria Engberg Sonne");
         authorList.add("Simon Roliggaard");
 
         AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
