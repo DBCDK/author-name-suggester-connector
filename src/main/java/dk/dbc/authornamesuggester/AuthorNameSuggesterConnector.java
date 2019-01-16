@@ -105,10 +105,10 @@ public class AuthorNameSuggesterConnector {
         failSafeHttpClient.getClient().close();
     }
 
-    public Suggestions getSuggestions(List<String> authorList) throws AuthorNameSuggesterConnectorException{
+    public AuthorNameSuggestions getSuggestions(List<String> authorList) throws AuthorNameSuggesterConnectorException{
         final String body = "[\"" + String.join("\",\"", authorList) + "\"]";
 
-        return postRequest(URL_SUGGEST, body, Suggestions.class);
+        return postRequest(URL_SUGGEST, body, AuthorNameSuggestions.class);
     }
 
 
