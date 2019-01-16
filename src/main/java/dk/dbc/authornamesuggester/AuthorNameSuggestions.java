@@ -6,15 +6,21 @@
 package dk.dbc.authornamesuggester;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.List;
 
 public class AuthorNameSuggestions {
 
     @JsonProperty("aut-names")
+    @JacksonXmlProperty(localName = "aut-name")
+    @JacksonXmlElementWrapper(localName = "aut-names")
     private List<String> authorityIds;
 
     @JsonProperty("ner-names")
+    @JacksonXmlProperty(localName = "ner-name")
+    @JacksonXmlElementWrapper(localName = "ner-names")
     private List<String> nerNames;
 
     public List<String> getAuthorityIds() {
