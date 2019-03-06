@@ -1,0 +1,18 @@
+{
+  "aut-names": [
+    {
+      "input-name": "Maria Engberg Sonne",
+      "authority": "19172422"
+    }
+  ],
+  "ner-names": [
+    {
+      "input-name": "Maria Engberg Sonne",
+      "authority": "19172422"
+    },
+    {
+      "input-name": "Simon Roliggaard",
+      "authority": null
+    }
+  ]
+}

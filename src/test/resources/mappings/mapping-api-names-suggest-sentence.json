@@ -1,0 +1,24 @@
+{
+  "id" : "495ef015-8b70-3c9a-a1ea-6e624f3974fe",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[\",Bjarne B. Christensen, Generalsekretær I Sex & Samfund\"]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-names-suggest-sentence.json",
+    "headers" : {
+      "Server" : "nginx/1.10.3",
+      "Date" : "Tue, 15 Jan 2019 13:11:19 GMT",
+      "Content-Type" : "application/json",
+      "Transfer-Encoding" : "chunked",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "495ef015-8b70-3c9a-a1ea-6e624f3974fe"
+}

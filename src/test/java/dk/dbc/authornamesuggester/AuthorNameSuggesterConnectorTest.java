@@ -20,6 +20,7 @@ import java.util.List;
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AuthorNameSuggesterConnectorTest {
@@ -53,11 +54,15 @@ public class AuthorNameSuggesterConnectorTest {
     @Test
     void getSuggestionsForSingleAuthorTest() throws AuthorNameSuggesterConnectorException {
         List<String> authorList = new ArrayList<>();
-        authorList.add("Sophie Engberg Sonne");
+        authorList.add(",Sophie Engberg Sonne");
 
         AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
-        assertThat(authorNameSuggestions.getAuthorityIds().size(), is(1));
-        assertThat(authorNameSuggestions.getAuthorityIds().get(0), is("19212041"));
+        assertThat(authorNameSuggestions.getAutNames().size(), is(1));
+        assertThat(authorNameSuggestions.getAutNames().get(0).getInputName(), is(",Sophie Engberg Sonne"));
+        assertThat(authorNameSuggestions.getAutNames().get(0).getAuthority(), is("19212041"));
+        assertThat(authorNameSuggestions.getNerNames().size(), is(1));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getInputName(), is("Sophie Engberg Sonne"));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), is("19212041"));
     }
 
     @Test
@@ -67,9 +72,26 @@ public class AuthorNameSuggesterConnectorTest {
         authorList.add("Simon Roliggaard");
 
         AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
-        assertThat(authorNameSuggestions.getAuthorityIds().size(), is(2));
-        assertThat(authorNameSuggestions.getAuthorityIds().get(0), is("19212041"));
-        assertThat(authorNameSuggestions.getAuthorityIds().get(1), is("19172422"));
+        assertThat(authorNameSuggestions.getAutNames().size(), is(1));
+        assertThat(authorNameSuggestions.getAutNames().get(0).getInputName(), is("Maria Engberg Sonne"));
+        assertThat(authorNameSuggestions.getAutNames().get(0).getAuthority(), is("19172422"));
+        assertThat(authorNameSuggestions.getNerNames().size(), is(2));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getInputName(), is("Maria Engberg Sonne"));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), is("19172422"));
+        assertThat(authorNameSuggestions.getNerNames().get(1).getInputName(), is("Simon Roliggaard"));
+        assertThat(authorNameSuggestions.getNerNames().get(1).getAuthority(), nullValue());
+    }
+
+    @Test
+    void getSuggestionForSentence() throws AuthorNameSuggesterConnectorException {
+        List<String> authorList = new ArrayList<>();
+        authorList.add(",Bjarne B. Christensen, Generalsekretær I Sex & Samfund");
+
+        AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
+        assertThat(authorNameSuggestions.getAutNames().size(), is(0));
+        assertThat(authorNameSuggestions.getNerNames().size(), is(1));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getInputName(), is("Bjarne B . Christensen"));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), nullValue());
     }
 
 }
