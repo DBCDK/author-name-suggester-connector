@@ -25,4 +25,28 @@ public class AuthorNameSuggestion {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
+
+    public static class Builder {
+        private String inputName;
+        private String authority;
+
+        public Builder withInputName(String inputName) {
+            this.inputName = inputName;
+            return this;
+        }
+
+        public Builder withAuthority(String authority) {
+            this.authority = authority;
+            return this;
+        }
+
+        public AuthorNameSuggestion build() {
+            AuthorNameSuggestion authorNameSuggestion = new AuthorNameSuggestion();
+            authorNameSuggestion.setInputName(inputName);
+            authorNameSuggestion.setAuthority(authority);
+
+            return authorNameSuggestion;
+        }
+    }
+
 }
