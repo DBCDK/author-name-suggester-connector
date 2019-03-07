@@ -11,7 +11,7 @@
   },
   "response" : {
     "status" : 200,
-    "bodyFileName" : "body-api-names-suggest-4P9mc.json",
+    "bodyFileName" : "body-api-names-suggest-two-names.json",
     "headers" : {
       "Server" : "nginx/1.10.3",
       "Date" : "Tue, 15 Jan 2019 13:11:20 GMT",

@@ -1,0 +1,14 @@
+{
+  "aut-names": [
+    {
+      "input-name": ",Sophie Engberg Sonne",
+      "authority": "19212041"
+    }
+  ],
+  "ner-names": [
+    {
+      "input-name": "Sophie Engberg Sonne",
+      "authority": "19212041"
+    }
+  ]
+}

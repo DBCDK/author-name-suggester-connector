@@ -4,14 +4,14 @@
     "url" : "/api/names/suggest",
     "method" : "POST",
     "bodyPatterns" : [ {
-      "equalToJson" : "[\"Sophie Engberg Sonne\"]",
+      "equalToJson" : "[\",Sophie Engberg Sonne\"]",
       "ignoreArrayOrder" : true,
       "ignoreExtraElements" : true
     } ]
   },
   "response" : {
     "status" : 200,
-    "bodyFileName" : "body-api-names-suggest-sIE6Q.json",
+    "bodyFileName" : "body-api-names-suggest-single-name.json",
     "headers" : {
       "Server" : "nginx/1.10.3",
       "Date" : "Tue, 15 Jan 2019 13:11:19 GMT",
