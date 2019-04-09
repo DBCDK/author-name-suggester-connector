@@ -23,6 +23,11 @@ public class AuthorNameSuggestions {
     @JacksonXmlElementWrapper(localName = "ner-names")
     private List<AuthorNameSuggestion> nerNames;
 
+    @JsonProperty("exact-match-names")
+    @JacksonXmlProperty(localName = "exact-match-name")
+    @JacksonXmlElementWrapper(localName = "exact-match-names")
+    private List<ExactMatchNames> exactMatchNames;
+
     public List<AuthorNameSuggestion> getAutNames() {
         return autNames;
     }
@@ -39,11 +44,20 @@ public class AuthorNameSuggestions {
         this.nerNames = nerNames;
     }
 
+    public List<ExactMatchNames> getExactMatchNames() {
+        return exactMatchNames;
+    }
+
+    public void setExactMatchNames(List<ExactMatchNames> exactMatchNames) {
+        this.exactMatchNames = exactMatchNames;
+    }
+
     @Override
     public String toString() {
         return "AuthorNameSuggestions{" +
                 "autNames=" + autNames +
                 ", nerNames=" + nerNames +
+                ", exactMatchNames=" + exactMatchNames +
                 '}';
     }
 }

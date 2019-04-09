@@ -15,7 +15,9 @@ import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.client.Client;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
@@ -73,13 +75,25 @@ public class AuthorNameSuggesterConnectorTest {
 
         AuthorNameSuggestions authorNameSuggestions = connector.getSuggestions(authorList);
         assertThat(authorNameSuggestions.getAutNames().size(), is(1));
-        assertThat(authorNameSuggestions.getAutNames().get(0).getInputName(), is("Maria Engberg Sonne"));
+        assertThat(authorNameSuggestions.getAutNames().get(0).getInputName(), is("Simon Roliggaard"));
         assertThat(authorNameSuggestions.getAutNames().get(0).getAuthority(), is("19172422"));
         assertThat(authorNameSuggestions.getNerNames().size(), is(2));
         assertThat(authorNameSuggestions.getNerNames().get(0).getInputName(), is("Maria Engberg Sonne"));
-        assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), is("19172422"));
+        assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), is(nullValue()));
         assertThat(authorNameSuggestions.getNerNames().get(1).getInputName(), is("Simon Roliggaard"));
-        assertThat(authorNameSuggestions.getNerNames().get(1).getAuthority(), nullValue());
+        assertThat(authorNameSuggestions.getNerNames().get(1).getAuthority(), is("19172422"));
+
+        final Map<String, String> expectedFields = new HashMap<>();
+        expectedFields.put("700a", "Sonne");
+        expectedFields.put("700h", "Maria Engberg");
+        assertThat("exact-match-names size",
+                authorNameSuggestions.getExactMatchNames().size(), is(1));
+        assertThat("exact-match-names input-name",
+                authorNameSuggestions.getExactMatchNames().get(0).getInputName(), is("Maria Engberg Sonne"));
+        assertThat("exact-match-names fields",
+                authorNameSuggestions.getExactMatchNames().get(0).getFields(), is(expectedFields));
+        assertThat("exact-match-names term-fo",
+                authorNameSuggestions.getExactMatchNames().get(0).getTermFo(), is("Sonne Maria Engberg"));
     }
 
     @Test

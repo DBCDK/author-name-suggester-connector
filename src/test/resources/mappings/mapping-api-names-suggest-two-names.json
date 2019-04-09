@@ -1,5 +1,5 @@
 {
-  "id" : "74e973e2-3c94-3ef0-89fa-8bd05ceab476",
+  "id" : "d679f0b9-f84f-312c-bd21-73528b205e73",
   "request" : {
     "url" : "/api/names/suggest",
     "method" : "POST",
@@ -14,11 +14,11 @@
     "bodyFileName" : "body-api-names-suggest-two-names.json",
     "headers" : {
       "Server" : "nginx/1.10.3",
-      "Date" : "Tue, 15 Jan 2019 13:11:20 GMT",
+      "Date" : "Tue, 09 Apr 2019 11:07:47 GMT",
       "Content-Type" : "application/json",
       "Transfer-Encoding" : "chunked",
       "Connection" : "keep-alive"
     }
   },
-  "uuid" : "74e973e2-3c94-3ef0-89fa-8bd05ceab476"
+  "uuid" : "d679f0b9-f84f-312c-bd21-73528b205e73"
 }
