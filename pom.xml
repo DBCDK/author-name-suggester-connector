@@ -133,6 +133,12 @@
       <version>${jackson.version}</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>dk.dbc</groupId>
+      <artifactId>json-binding</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>

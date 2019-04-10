@@ -84,8 +84,8 @@ public class AuthorNameSuggesterConnectorTest {
         assertThat(authorNameSuggestions.getNerNames().get(1).getAuthority(), is("19172422"));
 
         final Map<String, String> expectedFields = new HashMap<>();
-        expectedFields.put("700a", "Sonne");
-        expectedFields.put("700h", "Maria Engberg");
+        expectedFields.put("field700a", "Sonne");
+        expectedFields.put("field700h", "Maria Engberg");
         assertThat("exact-match-names size",
                 authorNameSuggestions.getExactMatchNames().size(), is(1));
         assertThat("exact-match-names input-name",
@@ -107,5 +107,4 @@ public class AuthorNameSuggesterConnectorTest {
         assertThat(authorNameSuggestions.getNerNames().get(0).getInputName(), is("Bjarne B . Christensen"));
         assertThat(authorNameSuggestions.getNerNames().get(0).getAuthority(), nullValue());
     }
-
 }
