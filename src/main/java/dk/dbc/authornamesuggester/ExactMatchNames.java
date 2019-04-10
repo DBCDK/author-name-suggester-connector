@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ExactMatchNames extends AuthorNameSuggestion {
     private Map<String, String> fields;
@@ -16,8 +17,22 @@ public class ExactMatchNames extends AuthorNameSuggestion {
     @JsonProperty("term-fo")
     private String termFo;
 
+    private static String newXmlSafeKey(String key) {
+        if (!key.isEmpty()) {
+            return "field" + key;
+        }
+        return key;
+    }
+
+    @JsonProperty
     public Map<String, String> getFields() {
-        return fields;
+        if (fields != null) {
+            return fields.entrySet().stream()
+                    .collect(Collectors.toMap(
+                            e -> ExactMatchNames.newXmlSafeKey(e.getKey()),
+                            Map.Entry::getValue));
+        }
+        return null;
     }
 
     public void setFields(Map<String, String> fields) {
