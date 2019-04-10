@@ -1,18 +1,1 @@
-{
-  "aut-names": [
-    {
-      "input-name": "Maria Engberg Sonne",
-      "authority": "19172422"
-    }
-  ],
-  "ner-names": [
-    {
-      "input-name": "Maria Engberg Sonne",
-      "authority": "19172422"
-    },
-    {
-      "input-name": "Simon Roliggaard",
-      "authority": null
-    }
-  ]
-}
+{"aut-names": [{"input-name": "Simon Roliggaard", "authority": "19172422"}], "ner-names": [{"input-name": "Maria Engberg Sonne", "authority": null}, {"input-name": "Simon Roliggaard", "authority": "19172422"}], "exact-match-names": [{"input-name": "Maria Engberg Sonne", "authority": null, "fields": {"700a": "Sonne", "700h": "Maria Engberg"}, "term-fo": "Sonne Maria Engberg"}]}

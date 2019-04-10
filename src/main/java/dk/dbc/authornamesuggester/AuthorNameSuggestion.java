@@ -49,4 +49,11 @@ public class AuthorNameSuggestion {
         }
     }
 
+    @Override
+    public String toString() {
+        return "AuthorNameSuggestion{" +
+                "inputName='" + inputName + '\'' +
+                ", authority='" + authority + '\'' +
+                '}';
+    }
 }

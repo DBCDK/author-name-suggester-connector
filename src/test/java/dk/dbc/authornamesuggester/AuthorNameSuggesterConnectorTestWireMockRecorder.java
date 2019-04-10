@@ -5,28 +5,13 @@
 
 package dk.dbc.authornamesuggester;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
-import dk.dbc.httpclient.HttpClient;
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.jackson.JacksonFeature;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
-import javax.ws.rs.client.Client;
-
-import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class AuthorNameSuggesterConnectorTestWireMockRecorder {
 
         /*
         Steps to reproduce wiremock recording:
 
         * Start standalone runner
-            java -jar wiremock-standalone-{WIRE_MOCK_VERSION}.jar --proxy-all="{INFOMEDIA_BASE_URL}" --record-mappings --verbose
+            java -jar wiremock-standalone-{WIRE_MOCK_VERSION}.jar --proxy-all="{AUTHOR_NAME_SUGGESTER_BASE_URL}" --record-mappings --verbose
 
         * Run the main method of this class
 
@@ -44,6 +29,7 @@ public class AuthorNameSuggesterConnectorTestWireMockRecorder {
             throws AuthorNameSuggesterConnectorException {
         connectorTest.getSuggestionsForSingleAuthorTest();
         connectorTest.getSuggestionsForTwoAuthorsTest();
+        connectorTest.getSuggestionForSentence();
     }
 
 }
