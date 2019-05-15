@@ -106,9 +106,7 @@ public class AuthorNameSuggesterConnector {
     }
 
     public AuthorNameSuggestions getSuggestions(List<String> authorList) throws AuthorNameSuggesterConnectorException{
-        final String body = "[\"" + String.join("\",\"", authorList) + "\"]";
-
-        return postRequest(URL_SUGGEST, body, AuthorNameSuggestions.class);
+        return postRequest(URL_SUGGEST, authorList, AuthorNameSuggestions.class);
     }
 
 
